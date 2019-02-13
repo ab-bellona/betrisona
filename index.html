@@ -1,0 +1,109 @@
+<!doctype html>
+
+<html lang="fa">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="stylesheet" type="text/css" href="styles/reset.min.css">
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+		<link rel="stylesheet" type="text/css" href="fonts/themify/themify.css">
+		<link rel="icon" href="img/icon.png" type="image/">
+		<title>BetrisonA | بازی تتریس کلمات </title>
+		
+	</head>
+
+	<body>
+	
+		<!--Game container-->
+		<div id="Tetris">
+			<!--time,points,and words counter-->
+			<div id="board">
+				<p class="timer"> <span class="ti-timer"></span> <span id="Timer">00 : 00</span> </p>
+				<p class="point"> <span class="ti-medall"></span> <span id="point">0</span> </p>
+				<p class="counter"> <span class="ti-check-box"></span> <span id="counter">0</span> </p>
+				<p class="menu" onClick="toggle('menu-container')"><span class="ti-menu"></span></p>
+				<div id="nextChar"></div>
+			</div>
+			<!--menu-->
+			<div id="menu-container">
+				<p class="closebtn" onClick="toggle('menu-container')"><i class="ti-close"></i></p>
+				<p class="record"><span>رکورد: </span><strong id="record"></strong><i class="ti-cup"></i></p>
+				<div>
+				<p class="btn" onClick="location.reload();"> <i class="ti-home"></i></p>
+				<p class="btn" onClick="stopIt()"><i id="stop" class="ti-control-pause"></i></p>
+				<p class="btn" onClick="music()"><i id="music" class="ti-music"></i></p>
+				</div>
+			</div>
+			<!--game over Block-->
+			<div id="gameOver">
+				<p><i class="ti-face-sad" style="font-size: 40px;color: rgb(197,49,51)" id="face"></i></p>
+				<p> امتیاز شما: <span id="last_point"></span></p>
+				<p class="best-score"> رکورد شما: <span id="best_score"></span></p>
+				<span onClick="location.reload();">شروع مجدد <i class="ti-reload"></i></span>
+			</div>
+			
+			<!--show new point to player-->
+			<div id="showPoint">
+				<p id="solved_word"></p>
+				<p id="solved_word_count"></p>
+			</div>
+			
+			<!--show Hint-->
+			<div id="hint_container"><span id="hint"></span> <i class="ti-info-alt"></i></div>
+			
+			<!--World of Game-->
+			<div id="world"></div>
+			<!--Visual Game Controllers-->
+			<div id="controllers">
+				<i class="ti-angle-left" onClick="move.play();moveLeft()"></i>
+				<i class="ti-angle-down" onClick="move.play();moveDown()"></i>
+				<i class="ti-angle-right" onClick="move.play();moveRight()"></i>
+			</div>
+			<!--Start Game button-->
+			<div id="startButton" class="start" onClick="start()">
+				<span>شروع بازی</span>
+			</div>
+		</div>
+		
+		<!--introduce Block-->
+		<div id="Introduce">
+			<h1>BetrisonA</h1>
+			<p>!بازی تتریس کلمات <i class="ti-game"></i></p>
+			<span>.سطح خود را انتخاب کنید</span>
+			<div>
+				<button onClick="toggle('info')">آموزش بازی <i class="ti-help"></i></button>
+			</div>
+		</div>
+		
+		<!--Learn Block-->
+		<div id="info">
+			<i onClick="toggle('info')" class="ti-close close"></i>
+			<h3>آموزش بازی تتریس کلمات</h3>
+			<p>در این بازی شما باید حروف یک کلمه را بصورت افقی از راست به چپ کنار هم قرار دهید.</p>
+			<p>به دنبال کلمات مربوط به <span style="color: rgb(48,197,88)">طبیعت (شامل میوه‌ها، فصل‌ها، بلایای طبیعی و اجزاء طبیعت)</span> باشید.</p>
+			<h4>علائم موجود در بازی</h4>
+			<p><i class="ti-timer"></i>: نشان دهنده زمان گذشته از بازی است.</p>
+			<p><i class="ti-medall"></i>: نشان دهنده تعداد امتیازهای کسب شده است.</p>
+			<p><i class="ti-check-box"></i>: نشان دهنده تعداد کلمات ساخته شده است.</p>
+			<div>
+				<button onClick="toggle('info')"><i class="ti-thumb-up"></i> حله </button>
+			</div>
+		</div>
+		
+		<!--4 seasons page for choosing level-->
+		<div class="seasonsContainer" id="Levels">
+			<span id="spring" class="season spring" onClick="preStart(this,200,700)"><span>ساده</span></span>
+			<span id="summer" class="season summer" onClick="preStart(this,150,600)"><span>متوسط</span></span>
+			<span id="fall" class="season fall" onClick="preStart(this,100,500)"><span>سخت</span></span>
+			<span id="winter" class="season winter" onClick="preStart(this,50,300)"><span>حرفه‌ای</span></span>
+			<span class="grass"></span>
+		</div>
+
+		<script type="text/javascript" src="js/tetris.js"></script>
+		
+   </body>
+   
+</html>
